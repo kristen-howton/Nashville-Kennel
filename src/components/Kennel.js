@@ -32,8 +32,9 @@ export default () => (
         </article>
         <h2>Locations</h2>
         <article className="locations">
-           <Location />
-           <Location />
+            <LocationProvider>
+                <LocationList />
+            </LocationProvider>
         </article>
         <h2>Customers</h2>
         <article className="customers">
