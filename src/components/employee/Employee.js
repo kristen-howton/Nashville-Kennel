@@ -7,4 +7,3 @@ export default ({employee}) => (
         <div className="employee__location">{employee.locationId}</div>
     </section>
 )
-

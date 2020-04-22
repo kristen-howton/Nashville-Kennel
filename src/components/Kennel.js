@@ -1,18 +1,18 @@
 import React from "react"
+import "./Kennel.css"
 import "./animal/Animal.css"
-import Employee from "./employee/Employee"
 import "./employee/Employee.css"
-import Customer from "./customer/Customer"
 import "./customer/Customer.css"
 import "./location/Location.css"
-import { LocationProvider } from "./location/LocationProvider"
-import  LocationList  from "./location/LocationList"
-import { AnimalProvider } from "./animal/AnimalProvider"
+import LocationList from "./location/LocationList"
+import {LocationProvider} from "./location/LocationProvider"
 import AnimalList from "./animal/AnimalList"
-import { CustomerProvider } from "./customer/CustomerProvider"
-import CustomerList from "./customer/CustomerList"
-import { EmployeeProvider } from "./employee/EmployeeProvider"
+import {AnimalProvider} from "./animal/AnimalProvider"
+import {CustomerProvider} from "./customer/CustomerProvider"
+import {EmployeeProvider} from "./employee/EmployeeProvider"
 import EmployeeList from "./employee/EmployeeList"
+import CustomerList from "./customer/CustomerList"
+import "./Kennel.css"
 
 export default () => (
     <>
@@ -25,20 +25,17 @@ export default () => (
         </address>
 
         <h2>Animals</h2>
-            <AnimalProvider>
-                <AnimalList />
-            </AnimalProvider>
-        <h2>Employees</h2>
+        <AnimalProvider>
             <EmployeeProvider>
-                <EmployeeList />
+                <CustomerProvider>
+                    <LocationProvider>
+                        <AnimalList />
+                        <EmployeeList />
+                        <LocationList />
+                        <CustomerList />
+                    </LocationProvider>
+                </CustomerProvider>
             </EmployeeProvider>
-        <h2>Locations</h2>
-            <LocationProvider>
-                <LocationList />
-            </LocationProvider>
-        <h2>Customers</h2>
-        <CustomerProvider>
-            <CustomerList />
-        </CustomerProvider>
+        </AnimalProvider>
     </>
 )

@@ -18,7 +18,7 @@ export const EmployeeProvider = (props) => {
             .then(setEmployees)
     }
 
-    const addEmployees = employee => {
+    const addEmployee = employee => {
         return fetch("http://localhost:8088/employees", {
             method: "POST",
             headers: {
@@ -30,20 +30,27 @@ export const EmployeeProvider = (props) => {
     }
 
     /*
-        Load all employees when the component is mounted. Ensure that
+        Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
-    useEffect(() => {
-        getEmployees()
-    }, [])
+    useEffect(
+        () => {
+            getEmployees()
+        },
+        []
+    )
 
-    useEffect(() => {
-        console.log("**** EMPLOYEE APPLICATION STATE CHANGED  ****")
-    }, [employees])
+    useEffect(
+        () => {
+            console.log("****  EMPLOYEE APPLICATION STATE CHANGED  ****")
+        },
+        [employees]
+    )
+
 
     return (
         <EmployeeContext.Provider value={{
-            employees, addEmployees
+            employees, addEmployee
         }}>
             {props.children}
         </EmployeeContext.Provider>
