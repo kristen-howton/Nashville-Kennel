@@ -9,7 +9,7 @@ export default () => {
     return (
         <div className="locations">
         {
-            locations.map(loc => <Location key={loc.id} location={loc} />)
+            locations.map(location => <Location key={location.id} location={location} />)
         }
         </div>
     )
