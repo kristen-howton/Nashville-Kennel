@@ -2,6 +2,7 @@ import React, { useContext, useRef } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
 import { LocationContext } from "../location/LocationProvider"
 import "./Employee.css"
+import { Button } from "reactstrap"
 
 export default props => {
     const { addEmployee } = useContext(EmployeeContext)
@@ -74,7 +75,7 @@ export default props => {
                     </select>
                 </div>
             </fieldset>
-            <button type="submit"
+            <Button type="submit"
                 onClick={
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
@@ -83,7 +84,7 @@ export default props => {
                 }
                 className="btn btn-primary">
                 Save Employee
-            </button>
+            </Button>
         </form>
     )
 }
