@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-
+import "./Login.css"
 
 const Register = props => {
     const firstName = useRef()
@@ -50,7 +50,7 @@ const Register = props => {
     }
 
     return (
-        <div className="container--login">
+        <main className="container--login">
             <form className="form--register" onSubmit={handleRegister}>
                 <h4 className="darkgray">If you are not a customer yet, please register a new account</h4>
                 <fieldset>
@@ -95,13 +95,12 @@ const Register = props => {
                 </fieldset>
                 <fieldset>
                     <button type="submit">
-                        Register
+                        Sign in
                     </button>
                 </fieldset>
             </form>
-        </div>
+        </main>
     )
 }
 
 export default Register
-
