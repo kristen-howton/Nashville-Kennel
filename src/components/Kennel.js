@@ -12,13 +12,12 @@ import {CustomerProvider} from "./customer/CustomerProvider"
 import {EmployeeProvider} from "./employee/EmployeeProvider"
 import EmployeeList from "./employee/EmployeeList"
 import CustomerList from "./customer/CustomerList"
-import "./Kennel.css"
+
 
 export default () => (
     <>
         <h2>Nashville Kennels</h2>
         <small>Loving care when you're not there.</small>
-
         <address>
             <div>Visit Us at the Nashville North Location</div>
             <div>500 Puppy Way</div>

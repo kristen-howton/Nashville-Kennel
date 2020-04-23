@@ -14,7 +14,7 @@ export default () => {
         <div className="animals">
         {
             animals.map(ani => {
-                const matchingLocation = locations.find(loc => loc.id === ani.locationId)
+                const matchingLocation = locations.find(location => location.id === ani.locationId)
                 const matchingCustomer = customers.find(customer => customer.id === ani.customerId)
 
                 return <Animal key={ani.id} animal={ani}
