@@ -4,10 +4,11 @@ import { LocationContext } from "../location/LocationProvider"
 import { CustomerContext } from "../customer/CustomerProvider"
 import { Button, Modal, ModalBody, ModalHeader} from "reactstrap"
 import AnimalForm from "./AnimalForm"
-import Animal from "./Animal"
-import "./Animal.css"
 
-export default () => {
+import "./Animal.css"
+import { Animal } from "./Animal"
+
+export const AnimalList = () => {
     const { animals } = useContext(AnimalContext)
     const { locations } = useContext(LocationContext)
     const { customers } = useContext(CustomerContext)
@@ -28,8 +29,8 @@ export default () => {
             <div className="animals">
                 {
                     animals.map(ani => {
-                        const matchingLocation = locations.find(location => location.id === ani.locationId)
-                        const matchingCustomer = customers.find(customer => customer.id === ani.customerId)
+                        const matchingLocation = locations.find(location => location.id === ani.locationId) || {}
+                        const matchingCustomer = customers.find(customer => customer.id === ani.customerId) || {}
 
                         return <Animal key={ani.id} animal={ani}
                             customer={matchingCustomer}

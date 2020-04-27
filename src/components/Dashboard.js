@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react"
 import { LocationProvider } from "./location/LocationProvider"
-import  LocationList  from "./location/LocationList"
+import LocationList from "./location/LocationList"
 import { EmployeeProvider } from "./employee/EmployeeProvider"
-import  EmployeeList  from "./employee/EmployeeList"
+import EmployeeList from "./employee/EmployeeList"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { CustomerProvider } from "./customer/CustomerProvider"
-import  CustomerList  from "./customer/CustomerList"
+import CustomerList from "./customer/CustomerList"
 import { SearchBar } from "./search/SearchBar"
 import { SearchResults } from "./search/SearchResults"
 import "./Layout.css"
 import "./Kennel.css"
+import { AnimalList } from "./animal/AnimalList"
 
 export const Dashboard = () => {
     const [searchTerms, setTerms] = useState(null)
@@ -38,7 +39,15 @@ export const Dashboard = () => {
             </LocationProvider>
         </EmployeeProvider>
     )
-
+    const showAnimals = () => (
+        <LocationProvider>
+            <AnimalProvider>
+                <CustomerProvider>
+                    <AnimalList />
+                </CustomerProvider>
+            </AnimalProvider>
+        </LocationProvider>
+    )
     /*
         This effect hook determines which list is shown
         based on the state of the `activeList` variable.
@@ -52,6 +61,9 @@ export const Dashboard = () => {
         }
         else if (activeList === "employees") {
             setComponents(showEmployees)
+        }
+        else if (activeList === "animals") {
+            setComponents(showAnimals)
         }
     }, [activeList])
 
@@ -75,6 +87,7 @@ export const Dashboard = () => {
                         <div className="fakeLink href" onClick={() => setActiveList("locations")}>Locations</div>
                         <div className="fakeLink href" onClick={() => setActiveList("customers")}>Customers</div>
                         <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
+                        <div className="fakeLink href" onClick={() => setActiveList("animals")}>Animals</div>
                     </div>
                     <div className="listDisplay">
                         {components}
